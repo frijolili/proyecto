@@ -24,7 +24,9 @@
         border-radius: 20px 20px 20px 20px;
         -webkit-box-shadow: -1px 7px 44px 14px rgba(31,124,159,0.64);
         -moz-box-shadow: -1px 7px 44px 14px rgba(31,124,159,0.64);
-        box-shadow: -1px 7px 44px 14px rgba(31,124,159,0.64);      
+        box-shadow: -1px 7px 44px 14px rgba(31,124,159,0.64);  
+        
+
       } 
 
       .c{
@@ -42,6 +44,7 @@
       .e{
         align-items: center;
         margin-top: 10%;
+       
       }
 
       .p{
@@ -53,11 +56,17 @@
       .p2{
        font-size: 1em !important;
       }
+      .body{
+     
+        background-size: cover;
+        background-image: url('resources/fondo.png');       
+      }
+      
     </style>
 
 </head>
 
-<body style="font-family: 'Cinzel', serif;">
+<body class="body" style="font-family: 'Cinzel', serif;">
   <!--inicio navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-secondary mx-auto">
     <div class="container-fluid mx-4">              
@@ -86,9 +95,9 @@
     <!--fin navbar-->
  
     
-    <div class="b  row" style=" height: 60vh; width: 90vh;">
+    <div class="b row" style=" height: 60vh; width: 90vh; background-color: white;">
       <!--color blanco-->
-      <div class="col e"> 
+      <div class="col e" style=""> 
         <form class="p-4">
           <div class="mb-3">
             <label for="exampleDropdownFormEmail2" class="form-label">correo electronico</label>
