@@ -13,7 +13,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <script src="db.js"></script>
     <title>Document</title>
+    <?php 
+    session_start();
+    $id = $_GET['id'];
+    $idUser = $_SESSION['idUser'];
+    $color = false;
+    //REQUIRED DB
+    SELECT * FROM LIKE WHERE userid = $idUser AND personajeID = $id;
+    if(existe el like){
+      $color=true;
+    }
+  ?>
 </head>
 <body class="fw-bolder" style="font-family: 'Cinzel', serif;">
         <!--inicio DE NAVBAR-->

@@ -34,8 +34,8 @@ class Database{
       
 
 }
-  //iniciar session
-  session_start();
+    //iniciar session
+    // session_start();
 
 
 ?>
