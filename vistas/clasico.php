@@ -24,6 +24,8 @@
     require_once "./../models/favorito.php";    
     $dios = new clasico(); 
     session_start();
+    $favorito = new favorito();
+    $fav = $favorito->GetFavorito($_SESSION['usuario']['ID'], $_GET['id']);
 
     $id = $_GET['id'];
     //$idUser = $_SESSION['idUser'];
@@ -62,7 +64,7 @@
             </div> 
 
             <div class="row">    
-                <p class="col p-3 align-middle" style="font-size: 1.5em;">
+            <a class="col p-3 navbar-brand text-black align-middle" style="font-size: 1.5em;" href="UsuarioCosas.php">
                     <?php 
                 if(isset($_SESSION['usuario'])){
                   echo ($_SESSION['usuario']['nombre']);
@@ -70,7 +72,8 @@
                 }
 
                       
-                ?></p>         
+                ?></a> 
+                       
               <a class="col navbar-brand text-black align-middle" href="login.php"><i class="bi bi-person-fill dropdown" style="font-size: 2em;"> </i> </a>
               </div>  
                                                                                   
@@ -84,8 +87,16 @@
                
                          
            <br> <br> <br>
-           <hr>   
-           <i id="heart" class="bi bi-heart col position-relative top-0 start-0 ms-5" style="font-size: 2em; color:black;" onclick="fav()"></i>
+           <hr>
+           <!--AQUI ESTÁ EL CORAZÓN-->   
+           <i id="heart" class="bi bi-heart col position-relative top-0 start-0 ms-5" style="font-size: 2em; color:<?php 
+                            if($fav->num_rows >0){
+                                echo('red');
+                            }else{
+                                echo('black');
+                            }
+                
+                ?>;" onclick="fav()"></i>
                    
            <br> <br> <br> <br>  
            
@@ -186,35 +197,12 @@
         
 <script type="text/javascript">
 
-        function color(){
-            // document.getElementById('heart').style.color = 'red';
-            if(document.getElementById('heart').style.color =='black'){
-                document.getElementById('heart').style.color ='red';
-            }else{
-                document.getElementById('heart').style.color = 'black';  
-            }    
-        }
-    
-    function def(){
+function fav(){
 
-        if(document.getElementById('definicion').style.display =='none'){
-            document.getElementById('definicion').style.display = 'block';
-        }else{
-            document.getElementById('definicion').style.display = 'none';  
-        }
-    
-    }
-    function fav(){
+//aqui lo que estoy haciendo es redireccionar a una página que solo contendrá codigo PHP ejecutándo funciones 
 
-    if(document.getElementById('heart').style.color =='black'){
-        document.getElementById('heart').style.color ='red';
-    }else{
-        document.getElementById('heart').style.color = 'black';  
-    }  
-    //aqui lo que estoy haciendo es redireccionar a una página que solo contendrá codigo PHP ejecutándo funciones 
-
-    location.href = "fav.php?id=<?php echo $_GET['id'];?>"     
-    }
+ location.href = "fav.php?id=<?php echo $_GET['id'];?>"   
+}
 
 </script>
 </body>

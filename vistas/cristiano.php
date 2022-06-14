@@ -36,7 +36,7 @@
     $busqueda =new busqueda();
     $bus = $busqueda->añadirBusqueda($_SESSION['usuario']['ID'], $_GET['id']);
     
-    $color = false;
+    //$color = false;
 
     //REQUIRED DB
 
