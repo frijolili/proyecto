@@ -2,6 +2,7 @@
 require_once "./../models/cristiano.php";
 require_once "./../models/generico.php"; 
     session_start();  
+    $gen = new generico();
     $cris = new cristiano();
     $santos = $cris->mostrarSantos();
 
@@ -73,7 +74,8 @@ require_once "./../models/generico.php";
             <ul class="list-group list-group-flush">                              
                     <?php  
                         for($i = 0; $i<$santos->num_rows;$i++){
-                            $fila = $santos->fetch_assoc();   
+                            $fila = $santos->fetch_assoc();  
+                          //  var_dump($fila) 
                                                  
                     ?>
                     <li id="<?php echo $fila['idgen'];?>" class="list-group-item">  

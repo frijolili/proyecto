@@ -46,6 +46,7 @@ class favorito{
         $resultado = $db->querySelect($dbconection, $query);     
                 return $resultado;
     }
+    
     function mostarfavClas($user){
         $db = new Database();
         $dbconection = $db->connect();       

@@ -48,7 +48,7 @@ class cristiano extends generico{
        // var_dump($array);
         $numatributos = count($array);
        
-        $query='select * from cristiano c, sergenerico g where c.idgen = g.ID and g.rol = 2';   
+        $query='select * from cristiano c, sergenerico g where c.idgen = g.ID';   
         
         $resultado = $db->querySelect($dbconection, $query); 
             

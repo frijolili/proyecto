@@ -21,10 +21,13 @@
     require_once "./../models/clasico.php";
     require_once "./../models/generico.php";
     require_once "./../models/busqueda.php"; 
-    require_once "./../models/favorito.php";    
+    require_once "./../models/favorito.php";  
+
     $dios = new clasico(); 
     session_start();
     $favorito = new favorito();
+      //echo($_SESSION['usuario']['ID']);
+   // echo($_GET['id']);
     $fav = $favorito->GetFavorito($_SESSION['usuario']['ID'], $_GET['id']);
 
     $id = $_GET['id'];
@@ -32,8 +35,8 @@
     $infoDios = $dios->mostrardios($id);   
     $info = $infoDios->fetch_assoc();
    //var_dump($info);
-   $busqueda =new busqueda();
-   $bus = $busqueda->añadirBusqueda($_SESSION['usuario']['ID'], $_GET['id'] );
+   $busqueda = new busqueda();
+   $bus = $busqueda->añadirBusqueda($_SESSION['usuario']['ID'], $_GET['id']);
 
     //$color = false;
 

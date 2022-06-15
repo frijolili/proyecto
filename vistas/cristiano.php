@@ -26,16 +26,18 @@
     $santo = new cristiano(); 
     session_start();
     $favorito = new favorito();
-    $fav = $favorito->GetFavorito($_SESSION['usuario']['ID'], $_GET['id']);
+    //echo($_SESSION['usuario']['ID']);
+    //echo($_GET['id']);
+   $fav = $favorito->GetFavorito($_SESSION['usuario']['ID'], $_GET['id']);
     
     $id = $_GET['id'];
     //$idUser = $_SESSION['idUser'];
     $infoSanto = $santo->mostrarSanto($id);   
     $info = $infoSanto->fetch_assoc();
    //var_dump($info);
-    $busqueda =new busqueda();
-    $bus = $busqueda->añadirBusqueda($_SESSION['usuario']['ID'], $_GET['id']);
-    
+   $busqueda =new busqueda();
+   $bus = $busqueda->añadirBusqueda($_SESSION['usuario']['ID'], $_GET['id'] );
+  
     //$color = false;
 
     //REQUIRED DB
