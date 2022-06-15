@@ -98,6 +98,7 @@
             <div class="col">
                 <div class="col top-0 start-0 ms-5" style="font-size: 1.5em;"><?php echo $info['nacimiento'];?></div> 
                 <div class="col top-0 start-0 ms-5" style="font-size: 1.5em;"><?php echo $info['categoría'];?></div>
+               <!-- <i class="bi bi-arrow-left-right" onclick="volver()">volver</i>-->
                 <?php 
                     if(isset($_SESSION['usuario']['ID'])){
                 ?>
@@ -179,6 +180,11 @@
         //aqui lo que estoy haciendo es redireccionar a una página que solo contendrá codigo PHP ejecutándo funciones 
 
          location.href = "fav.php?id=<?php echo $_GET['id'];?>"   
+        }
+        function volver(){
+
+            history.back();
+
         }
       
 
