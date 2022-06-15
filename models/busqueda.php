@@ -28,7 +28,7 @@ class busqueda{
         $db = new Database();
         $dbconection = $db->connect();
                     
-        $query = 'select distinct g.nombre, g.ID, g.rol from busqueda b, sergenerico g, usuario u  where b.id_usuario = u.ID and b.id_ser = g.ID and id_usuario ='.$user.';';
+        $query = 'select distinct g.nombre, g.ID, g.rol from busqueda b, sergenerico g, usuario u  where b.id_usuario = u.ID and b.id_ser = g.ID and id_usuario ='.$user.' limit 5;';
         $resultado = $db->querySelect($dbconection, $query);     
                 return $resultado;
     }
