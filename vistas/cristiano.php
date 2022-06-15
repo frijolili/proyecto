@@ -28,7 +28,8 @@
     $favorito = new favorito();
     //echo($_SESSION['usuario']['ID']);
     //echo($_GET['id']);
-   $fav = $favorito->GetFavorito($_SESSION['usuario']['ID'], $_GET['id']);
+    
+    
     
     $id = $_GET['id'];
     //$idUser = $_SESSION['idUser'];
@@ -36,7 +37,11 @@
     $info = $infoSanto->fetch_assoc();
    //var_dump($info);
    $busqueda =new busqueda();
-   $bus = $busqueda->añadirBusqueda($_SESSION['usuario']['ID'], $_GET['id'] );
+   if(isset($_SESSION['usuario']['ID'])){
+    $bus = $busqueda->añadirBusqueda($_SESSION['usuario']['ID'], $_GET['id'] );
+    $fav = $favorito->GetFavorito($_SESSION['usuario']['ID'], $_GET['id']);
+   }
+  
   
     //$color = false;
 
@@ -93,6 +98,9 @@
             <div class="col">
                 <div class="col top-0 start-0 ms-5" style="font-size: 1.5em;"><?php echo $info['nacimiento'];?></div> 
                 <div class="col top-0 start-0 ms-5" style="font-size: 1.5em;"><?php echo $info['categoría'];?></div>
+                <?php 
+                    if(isset($_SESSION['usuario']['ID'])){
+                ?>
                 <i id="heart" class="bi bi-heart col position-relative top-0 start-0 ms-5" style="font-size: 2em; color:<?php 
                             if($fav->num_rows >0){
                                 echo('red');
@@ -101,6 +109,7 @@
                             }
                 
                 ?>;" onclick="fav()"></i>
+                <?php }?>
             </div> 
             <br> <br> <br> <br>  
 
